@@ -52,8 +52,8 @@ void clear(){//clear dice
 void setup(){
 
   // Configure LED pins as output, turn LEDS off
-  DDRB |= ((1 << CENTER)|(1 << TLBR)|(1 << BRTL)|(1 << LR));
-  PORTB |= ((1 << CENTER)|(1 << TLBR)|(1 << BRTL)|(1 << LR));
+  DDRB |= ((1 << CENTER)|(1 << TLBR)|(1 << BLTR)|(1 << LR));
+  PORTB |= ((1 << CENTER)|(1 << TLBR)|(1 << BLTR)|(1 << LR));
   //configure Button pin as input with Pullup
   DDRB &= ~(1 << PB5);
   PORTB |= (1 << PB5);
@@ -68,7 +68,7 @@ void cast(void){
   	TCCR0B = 0x00;  //Timer-Stop
 	TCNT0=0x00;
 	while(!( PINB & ( 1<<PB5 ) )){
-	uint8_t a=rand()%6+1;
+        uint8_t a=1;//rand()%6+1;
 	clear();
 	show(a);
 	}
